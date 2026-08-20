@@ -34,7 +34,7 @@ HOST=[HOST_IP_ADDRESS]
 MULTICAST_IP_ADDR=[MULTICAST_ADDRESS] # If using multicast mode, find using ifconfig
 PORT=8090 # Ensure firewall on both machines allows this port on UDP at least
 ```
-Default selection is unicast mode, which sends it to only one computer, uncomment 
+Default selection is unicast mode, which sends it to only one computer, uncomment the command below to use multicast mode, ensuring the multicast address is correct.
 
 Place start-camera.sh somewhere known and ensure executable permissions
 ```bash
