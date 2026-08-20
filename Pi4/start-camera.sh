@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 WIDTH=1280
 HEIGHT=720
-HOST=192.168.0.79
-MULTICAST_IP_ADDR=224.0.0.1
-PORT=8090
+HOST=[HOST_IP_ADDRESS]
+MULTICAST_IP_ADDR=[MULTICAST_ADDRESS] # Find it using ifconfig
+PORT=8090 # Or any port that is free and allowed through firewall
 BITRATE=7000000
 GST_DEBUG=v4l2*:7
 # Basic -- direct h264 stream. Realtime if you use ffprobe. Not supported in vlc
