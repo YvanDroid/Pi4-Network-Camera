@@ -42,5 +42,30 @@ chmod +X start-camera.sh
 ./start-camera.sh
 ```
 
+[Optional] Set up a systemd service to auto-start the camera on boot (after login)
+```bash
+sudo nano /etc/systemd/system/network-camera.service
+```
+
+```bash
+[Unit]
+Description=Start Camera Module 3 stream
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/bash /where/you/put/start-camera.sh
+Type=simple
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+After saving, reload services list and start the camera service
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now network-camera.service
+```
+
 
 # PC Setup
