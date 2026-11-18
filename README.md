@@ -69,3 +69,20 @@ sudo systemctl enable --now network-camera.service
 
 
 # PC Setup
+Install the needed packages, in this case the target machine is running Arch Linux:
+```bash
+sudo pacman -S obs-studio obs-gstreamer gstreamer gst-libav
+```
+If using the commandline interface, you can use the following command if you have a desktop environment installed:
+```bash
+gst-launch-1.0 udpsrc port=<PORT> ! application/x-rtp, payload=96 ! rtph264depay  ! h264parse ! queue ! avdec_h264 ! autovideosink
+```
+
+Inside OBS, use the following steps:
+- Create a new GStreamer Source
+- Use the following pipeline inside:
+```bash
+udpsrc port=<PORT> ! application/x-rtp, payload=96 ! rtph264depay  ! h264parse ! queue ! avdec_h264 ! video.
+```
+Feel free to adjust fixed latency values if there is a delay in audio.
+
